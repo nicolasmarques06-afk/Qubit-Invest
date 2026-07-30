@@ -1,0 +1,9 @@
+{
+  "texto_padrao": "As informações e simulações apresentadas por este agente têm caráter educativo e experimental, não constituindo recomendação formal de investimento nos termos da regulamentação da CVM. Rentabilidade passada não garante rentabilidade futura. Consulte um profissional certificado (CFP, agente autônomo de investimento ou consultor CVM) antes de tomar decisões financeiras.",
+  "quando_exibir": [
+    "Sempre que o agente apresentar uma alocação de carteira",
+    "Sempre que o agente mencionar retorno esperado ou projeções",
+    "Na primeira interação com um novo usuário"
+  ],
+  "aviso_curto_para_chat": "Lembrete: esta é uma sugestão educativa baseada em modelo matemático, não uma recomendação financeira formal."
+}

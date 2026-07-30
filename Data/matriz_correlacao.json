@@ -1,0 +1,95 @@
+{
+  "ativos": [
+    "Tesouro Selic",
+    "CDB Liquidez Diária",
+    "LCI/LCA",
+    "Fundo Multimercado",
+    "Fundo de Ações",
+    "ETF BOVA11",
+    "Ação PETR4",
+    "Ação VALE3"
+  ],
+  "matriz": [
+    [
+      1.0,
+      0.85,
+      0.8,
+      0.3,
+      0.05,
+      0.05,
+      0.02,
+      0.02
+    ],
+    [
+      0.85,
+      1.0,
+      0.75,
+      0.3,
+      0.05,
+      0.05,
+      0.02,
+      0.02
+    ],
+    [
+      0.8,
+      0.75,
+      1.0,
+      0.25,
+      0.05,
+      0.05,
+      0.02,
+      0.02
+    ],
+    [
+      0.3,
+      0.3,
+      0.25,
+      1.0,
+      0.55,
+      0.6,
+      0.45,
+      0.4
+    ],
+    [
+      0.05,
+      0.05,
+      0.05,
+      0.55,
+      1.0,
+      0.85,
+      0.65,
+      0.6
+    ],
+    [
+      0.05,
+      0.05,
+      0.05,
+      0.6,
+      0.85,
+      1.0,
+      0.75,
+      0.7
+    ],
+    [
+      0.02,
+      0.02,
+      0.02,
+      0.45,
+      0.65,
+      0.75,
+      1.0,
+      0.65
+    ],
+    [
+      0.02,
+      0.02,
+      0.02,
+      0.4,
+      0.6,
+      0.7,
+      0.65,
+      1.0
+    ]
+  ],
+  "observacao": "Matriz simulada com base em relações típicas de mercado (renda fixa pouco correlacionada entre si e quase descorrelacionada de renda variável; ações e fundos de ações com correlação mais alta entre si)."
+}

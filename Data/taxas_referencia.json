@@ -1,0 +1,9 @@
+{
+  "data_referencia": "2026-07-29",
+  "taxas": {
+    "selic_meta_anual": 0.1075,
+    "cdi_anual": 0.1065,
+    "ipca_12_meses": 0.045
+  },
+  "observacao": "Valores de referência aproximados para uso no simulador. Em produção, recomenda-se atualizar via API do Banco Central (SGS) periodicamente, já que essas taxas mudam ao longo do tempo."
+}

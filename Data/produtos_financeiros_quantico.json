@@ -1,0 +1,82 @@
+[
+  {
+    "nome": "Tesouro Selic",
+    "categoria": "renda_fixa",
+    "risco": "baixo",
+    "retorno_esperado_anual": 0.105,
+    "volatilidade_anual": 0.01,
+    "aporte_minimo": 30.0,
+    "indicado_para": "Reserva de emergência e iniciantes",
+    "origem": "DIO (adaptado)"
+  },
+  {
+    "nome": "CDB Liquidez Diária",
+    "categoria": "renda_fixa",
+    "risco": "baixo",
+    "retorno_esperado_anual": 0.107,
+    "volatilidade_anual": 0.012,
+    "aporte_minimo": 100.0,
+    "indicado_para": "Quem busca segurança com rendimento diário",
+    "origem": "DIO (adaptado)"
+  },
+  {
+    "nome": "LCI/LCA",
+    "categoria": "renda_fixa",
+    "risco": "baixo",
+    "retorno_esperado_anual": 0.1,
+    "volatilidade_anual": 0.01,
+    "aporte_minimo": 1000.0,
+    "indicado_para": "Quem pode esperar 90 dias (isento de IR)",
+    "origem": "DIO (adaptado)"
+  },
+  {
+    "nome": "Fundo Multimercado",
+    "categoria": "fundo",
+    "risco": "medio",
+    "retorno_esperado_anual": 0.125,
+    "volatilidade_anual": 0.06,
+    "aporte_minimo": 500.0,
+    "indicado_para": "Perfil moderado que busca diversificação",
+    "origem": "DIO (adaptado)"
+  },
+  {
+    "nome": "Fundo de Ações",
+    "categoria": "fundo",
+    "risco": "alto",
+    "retorno_esperado_anual": 0.15,
+    "volatilidade_anual": 0.22,
+    "aporte_minimo": 100.0,
+    "indicado_para": "Perfil arrojado com foco no longo prazo",
+    "origem": "DIO (adaptado)"
+  },
+  {
+    "nome": "ETF BOVA11",
+    "categoria": "renda_variavel",
+    "risco": "alto",
+    "retorno_esperado_anual": 0.12,
+    "volatilidade_anual": 0.2,
+    "aporte_minimo": 50.0,
+    "indicado_para": "Exposição diversificada à bolsa brasileira",
+    "origem": "Criado (necessário p/ otimização)"
+  },
+  {
+    "nome": "Ação PETR4",
+    "categoria": "renda_variavel",
+    "risco": "alto",
+    "retorno_esperado_anual": 0.14,
+    "volatilidade_anual": 0.3,
+    "aporte_minimo": 30.0,
+    "indicado_para": "Perfil arrojado, tolerante a oscilações",
+    "origem": "Criado (necessário p/ otimização)"
+  },
+  {
+    "nome": "Ação VALE3",
+    "categoria": "renda_variavel",
+    "risco": "alto",
+    "retorno_esperado_anual": 0.13,
+    "volatilidade_anual": 0.28,
+    "aporte_minimo": 30.0,
+    "indicado_para": "Perfil arrojado, tolerante a oscilações",
+    "origem": "Criado (necessário p/ otimização)"
+  }
+]

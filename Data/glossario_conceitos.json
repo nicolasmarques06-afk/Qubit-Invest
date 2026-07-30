@@ -1,0 +1,38 @@
+[
+  {
+    "termo": "Volatilidade",
+    "explicacao_simples": "O quanto o preço de um ativo sobe e desce ao longo do tempo. Quanto maior, mais arriscado e mais imprevisível no curto prazo."
+  },
+  {
+    "termo": "Retorno esperado",
+    "explicacao_simples": "Uma estimativa de quanto um investimento deve render, em média, com base no histórico. Não é garantia."
+  },
+  {
+    "termo": "Diversificação",
+    "explicacao_simples": "Espalhar o dinheiro entre ativos diferentes para reduzir o risco de perder tudo se um deles for mal."
+  },
+  {
+    "termo": "Correlação entre ativos",
+    "explicacao_simples": "Mostra se dois investimentos costumam subir e descer juntos (correlação alta) ou de forma independente (correlação baixa). Ativos pouco correlacionados ajudam a diversificar melhor."
+  },
+  {
+    "termo": "QUBO",
+    "explicacao_simples": "Uma forma de escrever um problema de decisão (como 'quais ativos escolher') em formato matemático que pode ser resolvido por computadores quânticos ou algoritmos inspirados neles."
+  },
+  {
+    "termo": "QAOA",
+    "explicacao_simples": "Um algoritmo quântico usado para resolver problemas de otimização, como encontrar a melhor combinação de ativos em uma carteira."
+  },
+  {
+    "termo": "Perfil de investidor",
+    "explicacao_simples": "Classificação de quanto risco uma pessoa está disposta a aceitar em troca de mais retorno: conservador, moderado ou arrojado."
+  },
+  {
+    "termo": "CDI",
+    "explicacao_simples": "Uma taxa de referência do mercado financeiro brasileiro, usada como base para calcular o rendimento de muitos investimentos de renda fixa."
+  },
+  {
+    "termo": "Vantagem quântica",
+    "explicacao_simples": "Situação em que um computador quântico resolve um problema mais rápido ou melhor do que qualquer computador clássico. Ainda não comprovada para a maioria dos problemas financeiros do mundo real."
+  }
+]
