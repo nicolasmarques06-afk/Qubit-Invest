@@ -32,10 +32,49 @@ Sim. Os arquivos perfil_investidor.json e produtos_financeiros.json, fornecidos 
 > Descreva como seu agente acessa a base de conhecimento.
 
 Os arquivos JSON e CSV são carregados no início da sessão a partir do diretório local da base de conhecimento. Os dados fixos (perfil do cliente, produtos, taxas, glossário, disclaimer) são lidos uma vez e mantidos em memória durante a conversa. Os dados numéricos usados no cálculo (histórico de preços, matriz de correlação) são carregados sob demanda, no momento em que o módulo de otimização quântica é acionado.
+
 ### Como os dados são usados no prompt?
 > Os dados vão no system prompt? São consultados dinamicamente?
 
 Uma combinação dos dois. Informações estáveis e de baixo volume (perfil do cliente, disclaimer, glossário) são incluídas diretamente no system prompt do LLM, para que o agente sempre tenha esse contexto disponível. Já os dados de maior volume (histórico de preços, matriz de correlação) não vão para o prompt — são consultados dinamicamente pelo módulo de otimização quântica, que retorna apenas o resultado (alocação de ativos) para o LLM incluir na resposta. Isso evita estourar o limite de contexto do prompt com dados numéricos que o LLM não precisa interpretar diretamente.
+
+### Exemplo de Carrgamento
+
+```python
+import json
+import pandas as pd
+
+# Dados fixos (carregados uma vez, vão para o system prompt)
+with open("perfil_investidor_adaptado.json", encoding="utf-8") as f:
+    perfil_cliente = json.load(f)
+
+with open("produtos_financeiros_quantico.json", encoding="utf-8") as f:
+    ativos_disponiveis = json.load(f)
+
+with open("disclaimer_compliance.json", encoding="utf-8") as f:
+    disclaimer = json.load(f)
+
+# Dados numéricos (carregados sob demanda, usados só pelo módulo quântico)
+precos = pd.read_csv("historico_precos_simulado.csv")
+
+with open("matriz_correlacao.json", encoding="utf-8") as f:
+    correlacao = json.load(f)
+
+# Montagem do contexto que vai para o system prompt do LLM
+def montar_contexto(perfil, ativos):
+    ativos_resumo = "\n".join(
+        f"- {a['nome']}: retorno {a['retorno_esperado_anual']*100:.1f}% a.a. | risco {a['risco']}"
+        for a in ativos
+    )
+    return f"""Dados do Cliente:
+- Nome: {perfil['nome']}
+- Perfil de risco: {perfil['perfil_investidor'].capitalize()}
+- Capital disponível para investimento: R$ {perfil['capital_disponivel_investimento']:,.2f}
+
+Ativos disponíveis (resumo):
+{ativos_resumo}
+"""
+```
 
 ---
 
