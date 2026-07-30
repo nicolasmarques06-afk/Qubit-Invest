@@ -1,13 +1,17 @@
-# 🤖 Agente Financeiro Inteligente com IA Generativa
+# 🤖 Qubit Invest
 
 ## Contexto
 
-Os assistentes virtuais no setor financeiro estão evoluindo de simples chatbots reativos para **agentes inteligentes e proativos**. Neste desafio, você vai idealizar e prototipar um agente financeiro que utiliza IA Generativa para:
+Contexto
 
-- **Antecipar necessidades** ao invés de apenas responder perguntas
-- **Personalizar** sugestões com base no contexto de cada cliente
-- **Cocriar soluções** financeiras de forma consultiva
-- **Garantir segurança** e confiabilidade nas respostas (anti-alucinação)
+O mercado financeiro brasileiro tem crescido em investidores pessoa física acessando plataformas digitais, mas a maioria — especialmente iniciantes — não sabe como montar uma carteira que equilibre retorno e risco de forma eficiente.
+
+Ao mesmo tempo, otimização de portfólio é um dos casos de uso mais maduros de computação quântica aplicada a finanças: o problema pode ser formulado como QUBO e resolvido com algoritmos como QAOA (via Qiskit), rodando em simuladores gratuitos, sem precisar de hardware quântico real.
+
+O Qubit Invest nasceu como projeto do curso de Data Science da DIO (parceria Accenture), unindo três partes: um agente conversacional (LLM) que interpreta pedidos do usuário e explica resultados em linguagem simples, um módulo de otimização quântica que resolve a alocação de ativos, e uma base de dados com perfil do investidor, ativos, correlações e taxas de mercado.
+
+- **Escopo:** projeto educacional/experimental, não é recomendação financeira formal nem substitui um consultor certificado.
+
 
 > [!TIP]
 > Na pasta [`examples/`](./examples/) você encontra referências de implementação para cada etapa deste desafio.
@@ -18,9 +22,9 @@ Os assistentes virtuais no setor financeiro estão evoluindo de simples chatbots
 
 ### 1. Documentação do Agente
 
-Defina **o que** seu agente faz e **como** ele funciona:
+ **O que** o Q faz e **como** ele funciona:
 
-- **Caso de Uso:** Qual problema financeiro ele resolve? (ex: consultoria de investimentos, planejamento de metas, alertas de gastos)
+- **Caso de Uso:** Qual problema financeiro ele resolve? 
 - **Persona e Tom de Voz:** Como o agente se comporta e se comunica?
 - **Arquitetura:** Fluxo de dados e integração com a base de conhecimento
 - **Segurança:** Como evitar alucinações e garantir respostas confiáveis?
@@ -37,8 +41,15 @@ Utilize os **dados mockados** disponíveis na pasta [`data/`](./data/) para alim
 |---------|---------|-----------|
 | `transacoes.csv` | CSV | Histórico de transações do cliente |
 | `historico_atendimento.csv` | CSV | Histórico de atendimentos anteriores |
-| `perfil_investidor.json` | JSON | Perfil e preferências do cliente |
-| `produtos_financeiros.json` | JSON | Produtos e serviços disponíveis |
+| `historico_precos_simulado.csv` | CSV | Histórico de preços simulado |
+| `perfil_investidor_adaptado.json` | JSON | Perfil e preferências do cliente |
+| `produtos_financeiros_quantico.json` | JSON | Produtos e serviços disponíveis |
+| `disclaimer_compliance.json` | JSON | Disclaimer |
+| `glossario_conceitos.json` | JSON | Conceitos |
+| `tabela_ir_regressiva.json` | JSON | tabela ir regressiva |
+| `taxas_referencia.json` | JSON | Taxas Referência|
+| `matriz_correlacao.json` | JSON | Taxas Referência|
+
 
 Você pode adaptar ou expandir esses dados conforme seu caso de uso.
 
