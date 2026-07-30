@@ -25,7 +25,6 @@ Descreva se usou os arquivos da pasta `data`:
 > Você modificou ou expandiu os dados mockados? Descreva aqui.
 
 Sim. Os arquivos perfil_investidor.json e produtos_financeiros.json, fornecidos originalmente pela DIO, foram adaptados com campos numéricos (capital disponível, tolerância a risco, retorno esperado e volatilidade anualizados), necessários para alimentar o módulo de otimização quântica (QUBO/QAOA). Além disso, foram criados 6 novos arquivos que não existiam na base original — matriz_correlacao.json, historico_precos_simulado.csv, taxas_referencia.json, tabela_ir_regressiva.json, glossario_conceitos.json e disclaimer_compliance.json — necessários porque os dados fornecidos eram voltados a um agente de atendimento genérico, e não continham as informações matemáticas (correlação, séries de preços) exigidas para formular e resolver o problema de otimização de carteira. Os arquivos transacoes.csv e historico_atendimento.csv foram mantidos sem alterações.
----
 
 ## Estratégia de Integração
 
