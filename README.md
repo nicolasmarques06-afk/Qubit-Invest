@@ -39,16 +39,16 @@ Utilize os **dados mockados** disponíveis na pasta [`data/`](./data/) para alim
 
 | Arquivo | Formato | Descrição |
 |---------|---------|-----------|
-| `transacoes.csv` | CSV | Histórico de transações do cliente |
-| `historico_atendimento.csv` | CSV | Histórico de atendimentos anteriores |
-| `historico_precos_simulado.csv` | CSV | Histórico de preços simulado |
-| `perfil_investidor_adaptado.json` | JSON | Perfil e preferências do cliente |
-| `produtos_financeiros_quantico.json` | JSON | Produtos e serviços disponíveis |
-| `disclaimer_compliance.json` | JSON | Disclaimer |
-| `glossario_conceitos.json` | JSON | Conceitos |
-| `tabela_ir_regressiva.json` | JSON | tabela ir regressiva |
-| `taxas_referencia.json` | JSON | Taxas Referência|
-| `matriz_correlacao.json` | JSON | Taxas Referência|
+| `transacoes.csv` | CSV | Receitas e despesas mensais do cliente, usadas para estimar capacidade de investimento|
+| `historico_atendimento.csv` | CSV | Registros de dúvidas e atendimentos anteriores, usados como base de FAQ do agente |
+| `historico_precos_simulado.csv` | CSV | Série histórica de preços por ativo, usada para calcular retorno e risco na otimização |
+| `perfil_investidor_adaptado.json` | JSON | Dados do cliente (capital, perfil de risco, metas), usados para personalizar a recomendação |
+| `produtos_financeiros_quantico.json` | JSON | Ativos disponíveis, com retorno esperado e volatilidade anualizados |
+| `disclaimer_compliance.json` | JSON | 	Texto de aviso legal exibido junto às recomendações do agente |
+| `glossario_conceitos.json` | JSON | 	Termos técnicos (QUBO, QAOA, volatilidade etc.) explicados em linguagem simples |
+| `tabela_ir_regressiva.json` | JSON |	Alíquotas de Imposto de Renda por prazo, usadas para calcular retorno líquido |
+| `taxas_referencia.json` | JSON | Selic, CDI e IPCA, usados para converter rentabilidade percentual em valores reais|
+| `matriz_correlacao.json` | JSON | Correlação entre os ativos, usada para calcular o risco combinado da carteira|
 
 
 Você pode adaptar ou expandir esses dados conforme seu caso de uso.
