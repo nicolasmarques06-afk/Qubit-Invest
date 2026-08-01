@@ -1,39 +1,34 @@
-# Pitch (3 minutos)
+# Pitch 
 
-> [!TIP]
-> Você pode usar alguns slides pra apoiar no seu Pitch e mostrar sua solução na prática.
- 
-## Roteiro Sugerido
-
-### 1. O Problema (30 seg)
+### 1. O Problema 
 > Qual dor do cliente você resolve?
 
-[Sua descrição aqui]
+Investidores iniciantes têm dificuldade em decidir como distribuir seu capital entre diferentes ativos de forma que equilibre retorno e risco. Fazer essa análise manualmente é complexo — o número de combinações possíveis cresce rapidamente conforme aumenta a quantidade de ativos, tornando inviável encontrar a alocação ideal por tentativa e erro ou intuição.
 
-### 2. A Solução (1 min)
+### 2. A Solução 
 > Como seu agente resolve esse problema?
 
-[Sua descrição aqui]
+O Qubit Invest é um assistente conversacional que recebe o perfil, capital e objetivos do investidor, e formula a escolha de ativos como um problema matemático de otimização (QUBO), resolvido por um algoritmo quântico — o QAOA — rodando em simulador local via Qiskit, sem custo. O resultado é traduzido pelo agente em linguagem simples, explicando por que cada ativo entrou na carteira, sempre com o aviso de que é uma sugestão educativa, não uma recomendação financeira formal.
 
-### 3. Demonstração (1 min)
+### 3. Demonstração 
 > Mostre o agente funcionando (pode ser gravação de tela)
 
-[Descreva o que será mostrado]
+Gravação de tela mostrando o chat recebendo a pergunta "monta uma carteira pra mim". Como o módulo de otimização quântica leva de 1 a 3 minutos para rodar (mesmo em simulador), o tempo de espera será cortado na edição. A gravação mostra: a pergunta sendo enviada, um corte indicando "otimização quântica rodando (QAOA)", e a resposta final do agente com a alocação real calculada — ativos específicos e pesos exatos, não uma resposta genérica.
 
-### 4. Diferencial e Impacto (30 seg)
+### 4. Diferencial e Impacto 
 > Por que essa solução é inovadora e qual é o impacto dela na sociedade?
 
-[Sua descrição aqui]
+O diferencial está em unir três camadas que raramente aparecem juntas: um LLM conversacional acessível, um módulo de otimização quântica real (QUBO/QAOA, não apenas "quantum-inspired" de nome), e uma base de conhecimento estruturada. O impacto está em tornar um conceito de ponta — computação quântica aplicada a finanças — compreensível e testável por qualquer pessoa, sem custo, democratizando o acesso a uma ferramenta de decisão financeira mais sofisticada.
 
 ---
 
 ## Checklist do Pitch
 
 - [ ] Duração máxima de 3 minutos
-- [ ] Problema claramente definido
-- [ ] Solução demonstrada na prática
-- [ ] Diferencial explicado
-- [ ] Áudio e vídeo com boa qualidade
+- [x] Problema claramente definido
+- [x] Solução demonstrada na prática
+- [x] Diferencial explicado
+- [x] Áudio e vídeo com boa qualidade
 
 ---
 
@@ -41,4 +36,4 @@
 
 > Cole aqui o link do seu pitch (YouTube, Loom, Google Drive, etc.)
 
-[Link do vídeo]
+> https://www.youtube.com/watch?v=TkWyUBVri7s
