@@ -1,120 +1,141 @@
-# 🤖 Qubit Invest
-
-## Contexto
-
-Contexto
-
-O mercado financeiro brasileiro tem crescido em investidores pessoa física acessando plataformas digitais, mas a maioria — especialmente iniciantes — não sabe como montar uma carteira que equilibre retorno e risco de forma eficiente.
-
-Ao mesmo tempo, otimização de portfólio é um dos casos de uso mais maduros de computação quântica aplicada a finanças: o problema pode ser formulado como QUBO e resolvido com algoritmos como QAOA (via Qiskit), rodando em simuladores gratuitos, sem precisar de hardware quântico real.
-
-O Qubit Invest nasceu como projeto do curso de Data Science da DIO (parceria Accenture), unindo três partes: um agente conversacional (LLM) que interpreta pedidos do usuário e explica resultados em linguagem simples, um módulo de otimização quântica que resolve a alocação de ativos, e uma base de dados com perfil do investidor, ativos, correlações e taxas de mercado.
-
-- **Escopo:** projeto educacional/experimental, não é recomendação financeira formal nem substitui um consultor certificado.
-
-
-> [!TIP]
-> Na pasta [`examples/`](./examples/) você encontra referências de implementação para cada etapa deste desafio.
-
+# 💠 Qubit Invest
+ 
+**Assistente virtual de investimentos com IA que aplica computação quântica (QUBO/QAOA) para otimização de carteiras.**
+ 
+Projeto desenvolvido por [Nicolas Marques](https://github.com/nicolasmarques06-afk) no curso de Data Science da [DIO](https://www.dio.me/), em parceria com a Accenture.
+ 
 ---
-
-## O Que Você Deve Entregar
-
-### 1. Documentação do Agente
-
- **O que** o Q faz e **como** ele funciona:
-
-- **Caso de Uso:** Qual problema financeiro ele resolve? 
-- **Persona e Tom de Voz:** Como o agente se comporta e se comunica?
-- **Arquitetura:** Fluxo de dados e integração com a base de conhecimento
-- **Segurança:** Como evitar alucinações e garantir respostas confiáveis?
-
-📄 **Template:** [`docs/01-documentacao-agente.md`](./docs/01-documentacao-agente.md)
-
+ 
+## O Problema
+ 
+Investidores iniciantes têm dificuldade em decidir como distribuir seu capital entre diferentes ativos de forma que equilibre retorno e risco. Fazer essa análise manualmente é complexo — o número de combinações possíveis cresce rapidamente conforme aumenta a quantidade de ativos, tornando inviável encontrar a alocação ideal por tentativa e erro.
+ 
+## A Solução
+ 
+O **Qubit Invest** une três camadas para resolver esse problema:
+ 
+1. **Chat conversacional** — um agente (o **Q**) que interpreta o perfil, capital e objetivos do investidor em linguagem natural, usando um LLM local (Ollama), sem custo.
+2. **Base de conhecimento estruturada** — 10 arquivos JSON/CSV com dados do cliente, ativos, correlações, taxas de mercado e regras de tributação.
+3. **Módulo de otimização quântica** — a escolha de ativos é formulada como um problema **QUBO** e resolvida com **QAOA**, rodando em simulador local via [Qiskit](https://www.ibm.com/quantum/qiskit).
+O LLM nunca inventa a alocação de carteira — ele só explica, em linguagem simples, o resultado real calculado pelo módulo quântico.
+ 
+> **Escopo:** projeto educacional/experimental. Não é recomendação financeira formal nem substitui um consultor certificado.
+ 
 ---
-
-### 2. Base de Conhecimento
-
-Utilize os **dados mockados** disponíveis na pasta [`data/`](./data/) para alimentar seu agente:
-
-| Arquivo | Formato | Descrição |
-|---------|---------|-----------|
-| `transacoes.csv` | CSV | Receitas e despesas mensais do cliente, usadas para estimar capacidade de investimento|
-| `historico_atendimento.csv` | CSV | Registros de dúvidas e atendimentos anteriores, usados como base de FAQ do agente |
-| `historico_precos_simulado.csv` | CSV | Série histórica de preços por ativo, usada para calcular retorno e risco na otimização |
-| `perfil_investidor_adaptado.json` | JSON | Dados do cliente (capital, perfil de risco, metas), usados para personalizar a recomendação |
-| `produtos_financeiros_quantico.json` | JSON | Ativos disponíveis, com retorno esperado e volatilidade anualizados |
-| `disclaimer_compliance.json` | JSON | 	Texto de aviso legal exibido junto às recomendações do agente |
-| `glossario_conceitos.json` | JSON | 	Termos técnicos (QUBO, QAOA, volatilidade etc.) explicados em linguagem simples |
-| `tabela_ir_regressiva.json` | JSON |	Alíquotas de Imposto de Renda por prazo, usadas para calcular retorno líquido |
-| `taxas_referencia.json` | JSON | Selic, CDI e IPCA, usados para converter rentabilidade percentual em valores reais|
-| `matriz_correlacao.json` | JSON | Correlação entre os ativos, usada para calcular o risco combinado da carteira|
-
-
-Você pode adaptar ou expandir esses dados conforme seu caso de uso.
-
-📄 **Template:** [`docs/02-base-conhecimento.md`](./docs/02-base-conhecimento.md)
-
+ 
+## Como Funciona
+ 
+```
+Cliente → Interface (Streamlit) → LLM (Q) → Base de Conhecimento
+                                       ↓
+                            Módulo de Otimização Quântica
+                                  (QUBO + QAOA)
+                                       ↓
+                                  Validação → Resposta
+```
+ 
+O módulo quântico é o único componente que executa cálculo matemático real — os demais orquestram a conversa e traduzem o resultado.
+ 
 ---
-
-### 3. Prompts do Agente
-
-Documente os prompts que definem o comportamento do seu agente:
-
-- **System Prompt:** Instruções gerais de comportamento e restrições
-- **Exemplos de Interação:** Cenários de uso com entrada e saída esperada
-- **Tratamento de Edge Cases:** Como o agente lida com situações limite
-
-📄 **Template:** [`docs/03-prompts.md`](./docs/03-prompts.md)
-
+ 
+## Tecnologias
+ 
+| Camada | Ferramenta |
+|---|---|
+| Interface | [Streamlit](https://streamlit.io/) |
+| LLM | [Ollama](https://ollama.ai/) (local, gratuito) |
+| Otimização quântica | [Qiskit](https://www.ibm.com/quantum/qiskit) + `qiskit-optimization` (QUBO/QAOA) |
+| Dados | `pandas`, `numpy` |
+ 
+Todo o projeto roda **100% local, sem custo** — sem API paga, sem hardware quântico real.
+ 
 ---
-
-### 4. Aplicação Funcional
-
-Desenvolva um **protótipo funcional** do seu agente:
-
-- Chatbot interativo (sugestão: Streamlit, Gradio ou similar)
-- Integração com LLM (via API ou modelo local)
-- Conexão com a base de conhecimento
-
-📁 **Pasta:** [`src/`](./src/)
-
+ 
+## Como Rodar
+ 
+```bash
+# 1. Instalar dependências
+pip install -r requirements.txt
+ 
+# 2. Instalar e rodar o Ollama (LLM local, gratuito)
+# Baixe em https://ollama.com e depois rode:
+ollama pull llama3
+ 
+# 3. Rodar a aplicação
+streamlit run src/app.py
+```
+ 
+O app abre em `http://localhost:8501`. Na sidebar é possível ajustar os parâmetros da otimização (quantidade de ativos e aversão a risco) antes de pedir uma recomendação de carteira no chat.
+ 
 ---
-
-### 5. Avaliação e Métricas
-
-Descreva como você avalia a qualidade do seu agente:
-
-**Métricas Sugeridas:**
-- Precisão/assertividade das respostas
-- Taxa de respostas seguras (sem alucinações)
-- Coerência com o perfil do cliente
-
-📄 **Template:** [`docs/04-metricas.md`](./docs/04-metricas.md)
-
+ 
+## Estrutura do Projeto
+ 
+```
+qubit-invest/
+├── src/
+│   ├── app.py                  # Interface de chat (Streamlit)
+│   ├── knowledge_base.py       # Carregamento da base de conhecimento
+│   ├── llm_client.py           # Cliente do LLM (Ollama)
+│   ├── optimization.py         # Motor de otimização quântica (QUBO + QAOA)
+│   └── requirements.txt
+├── data/                       # Base de conhecimento (10 arquivos JSON/CSV)
+├── docs/
+│   ├── 01-documentacao-agente.md
+│   ├── 02-base-conhecimento.md
+│   ├── 03-prompts.md
+│   ├── 04-metricas.md
+│   └── 05-pitch.md
+└── README.md
+```
+ 
 ---
-
-### 6. Pitch
-
-Grave um **pitch de 3 minutos** (estilo elevador) apresentando:
-
-- Qual problema seu agente resolve?
-- Como ele funciona na prática?
-- Por que essa solução é inovadora?
-
-📄 **Template:** [`docs/05-pitch.md`](./docs/05-pitch.md)
-
+ 
+## Documentação
+ 
+| Documento | Conteúdo |
+|---|---|
+| [`docs/01-documentacao-agente.md`](docs/01-documentacao-agente.md) | Caso de uso, persona, tom de voz e arquitetura |
+| [`docs/02-base-conhecimento.md`](docs/02-base-conhecimento.md) | Descrição e estratégia de integração dos dados |
+| [`docs/03-prompts.md`](docs/03-prompts.md) | System prompt, exemplos de interação e edge cases |
+| [`docs/04-metricas.md`](docs/04-metricas.md) | Métricas de avaliação e cenários de teste |
+| [`docs/05-pitch.md`](docs/05-pitch.md) | Roteiro do pitch de apresentação |
+ 
 ---
-
-## Ferramentas Sugeridas
-
-Todas as ferramentas abaixo possuem versões gratuitas:
-
-| Categoria | Ferramentas |
-|-----------|-------------|
-| **LLMs** | [ChatGPT](https://chat.openai.com/), [Copilot](https://copilot.microsoft.com/), [Gemini](https://gemini.google.com/), [Claude](https://claude.ai/), [Ollama](https://ollama.ai/) |
-| **Desenvolvimento** | [Streamlit](https://streamlit.io/), [Gradio](https://www.gradio.app/), [Google Colab](https://colab.research.google.com/) |
-| **Orquestração** | [LangChain](https://www.langchain.com/), [LangFlow](https://www.langflow.org/), [CrewAI](https://www.crewai.com/) |
-| **Diagramas** | [Mermaid](https://mermaid.js.org/), [Draw.io](https://app.diagrams.net/), [Excalidraw](https://excalidraw.com/) |
-
+ 
+## Base de Conhecimento
+ 
+| Arquivo | Descrição |
+|---|---|
+| `perfil_investidor_adaptado.json` | Dados do cliente (capital, perfil de risco, metas) |
+| `produtos_financeiros_quantico.json` | Ativos disponíveis, com retorno e volatilidade |
+| `matriz_correlacao.json` | Correlação entre ativos, para cálculo de risco combinado |
+| `historico_precos_simulado.csv` | Série de preços usada no cálculo de retorno/risco |
+| `taxas_referencia.json` | Selic, CDI e IPCA |
+| `tabela_ir_regressiva.json` | Alíquotas de Imposto de Renda por prazo |
+| `glossario_conceitos.json` | Termos técnicos explicados em linguagem simples |
+| `disclaimer_compliance.json` | Aviso legal exibido junto às recomendações |
+| `transacoes.csv` | Fluxo de caixa do cliente |
+| `historico_atendimento.csv` | Histórico de atendimento / FAQ |
+ 
 ---
+ 
+## Limitações Conhecidas
+ 
+- O QAOA rodando localmente, sem GPU, leva de 1 a 3 minutos por consulta.
+- Não existe vantagem quântica comprovada para problemas financeiros em produção — este projeto é uma prova de conceito, não uma alternativa performática a métodos clássicos.
+- Detecção de pedidos de carteira é baseada em palavras-chave simples.
+- Ainda não foram realizados testes estruturados formais com terceiros.
+## Próximos Passos
+ 
+- [ ] Testes estruturados com métricas de assertividade, segurança e coerência
+- [ ] Otimizar latência do módulo quântico
+- [ ] Expandir a base com dados macroeconômicos em tempo real (API do Banco Central)
+---
+ 
+## Autor
+ 
+**Nicolas Marques**
+Projeto desenvolvido no curso de Data Science da [DIO](https://www.dio.me/), em parceria com a Accenture.
+ 
+*Este repositório é um fork do desafio [`dio-lab-bia-do-futuro`](https://github.com/digitalinnovationone/dio-lab-bia-do-futuro).*
