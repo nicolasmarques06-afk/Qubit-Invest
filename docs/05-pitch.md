@@ -36,4 +36,4 @@ O diferencial está em unir três camadas que raramente aparecem juntas: um LLM 
 
 > Cole aqui o link do seu pitch (YouTube, Loom, Google Drive, etc.)
 
-> https://www.youtube.com/watch?v=TkWyUBVri7s
+> https://www.youtube.com/watch?v=TZItZ4s1c8M
